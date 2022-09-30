@@ -1,0 +1,12 @@
+---
+ - hosts: test
+   tasks: 
+   - name: back up files
+     copy: 
+        src: /home/ubuntu/chenna 
+        dest: /home/ubuntu/chenna_{{ ansible_date_time.date }}.bkp
+        remote_src: yes
+   - name: copy files from master to slave      
+     copy:
+        src: /root/anji
+        dest: /home/ubuntu/chenna       
